@@ -1,0 +1,23 @@
+{
+  "name": "interactive-rating-component-main",
+  "version": "1.0.0",
+  "description": "![Design preview for the Interactive rating component coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diogoditorr/venturix-stars-challenge-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diogoditorr/venturix-stars-challenge-1/issues"
+  },
+  "homepage": "https://github.com/diogoditorr/venturix-stars-challenge-1#readme",
+  "devDependencies": {
+    "eslint": "^8.20.0"
+  }
+}
