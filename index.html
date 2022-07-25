@@ -1,49 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Interactive rating component</title>
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
+        />
+        <title>Frontend Mentor | Interactive rating component</title>
 
-  <!-- Rating state start -->
+        <!-- Styles -->
+        <link rel="stylesheet" href="./assets/css/main.css" />
+        <link rel="stylesheet" href="./assets/css/rating.css" />
+        <link rel="stylesheet" href="./assets/css/utils.css" />
 
-  How did we do?
+        <style>
+            .attribution {
+                margin-bottom: 1rem;
+                font-size: 11px;
+                text-align: center;
+                color: var(--white);
+            }
+            .attribution a {
+                color: hsl(228, 45%, 44%);
+            }
+        </style>
 
-  Please let us know how we did with your support request. All feedback is appreciated 
-  to help us improve our offering!
+        <!-- Scripts -->
+        <script src="./assets/js/main.js" defer></script>
+    </head>
+    <body>
+        <main>
+            <div class="rating-container">
+                <div class="rating-evaluation">
+                    <div class="star">
+                        <img src="./images/icon-star.svg" alt="Icon of a star" />
+                    </div>
+                    <h1>How did we do?</h1>
+                    <p>
+                        Please let us know how we did with your support request.
+                        All feedback is appreciated to help us improve our
+                        offering!
+                    </p>
+                    <ul class="rating-options">
+                        <li data-value="1">1</li>
+                        <li data-value="2">2</li>
+                        <li data-value="3">3</li>
+                        <li data-value="4">4</li>
+                        <li data-value="5">5</li>
+                    </ul>
+                    <button class="submit" disabled>Submit</button>
+                </div>
 
-  1 2 3 4 5
+                <div class="rating-acknowledgement hidden">
+                    <img
+                        src="./images/illustration-thank-you.svg"
+                        alt="Image showing that the rating was submitted"
+                    />
 
-  Submit
+                    <span class="rating-selected"></span>
 
-  <!-- Rating state end -->
+                    <h1>Thank you!</h1>
+                    <p>
+                        We appreciate you taking the time to give a rating. If
+                        you ever need more support, don't hesitate to get in
+                        touch!
+                    </p>
+                </div>
+            </div>
+        </main>
 
-  <!-- Thank you state start -->
-
-  You selected <!-- Add rating here --> out of 5
-
-  Thank you!
-
-  We appreciate you taking the time to give a rating. If you ever need more support, 
-  don’t hesitate to get in touch!
-
-  <!-- Thank you state end -->
-
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+        <footer class="attribution">
+            Challenge by
+            <a
+                href="https://www.frontendmentor.io?ref=challenge"
+                target="_blank"
+                >Frontend Mentor</a
+            >. Coded by <a href="#">Diego Oliveira</a>.
+        </footer>
+    </body>
 </html>
