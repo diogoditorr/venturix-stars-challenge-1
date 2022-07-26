@@ -20,6 +20,28 @@ function onRatingOptionPress(ratingOption) {
     ratingOption.classList.add('selected');
 }
 
+function onRatingOptionKeydown(e, ratingOption) {
+    if (e.keyCode == 13) { // enter
+        onRatingOptionPress(ratingOption);
+    }
+    if (e.keyCode == 39) { // arrow-right
+        const nextElement = ratingOption.nextElementSibling;
+        if (nextElement) {
+            ratingOption.tabIndex = -1;
+            nextElement.tabIndex = 0;
+            nextElement.focus();
+        }
+    }
+    if (e.keyCode == 37) { // arrow-left
+        const previousElement = ratingOption.previousElementSibling;
+        if (previousElement) {
+            ratingOption.tabIndex = -1;
+            previousElement.tabIndex = 0;
+            previousElement.focus();
+        }
+    }
+}
+
 function onSubmitButton() {
     ratingSelected.textContent = `You selected ${ratingResult} out of 5`;
     ratingEvaluationSection.classList.add('hidden');
@@ -42,27 +64,7 @@ function disableSubmitButton() {
 
 ratingOptions.forEach((ratingOption) => {
     ratingOption.addEventListener('click', () => onRatingOptionPress(ratingOption));
-    ratingOption.onkeydown = (e) => {
-        if (e.keyCode == 13) { // enter
-            onRatingOptionPress(ratingOption);
-        }
-        if (e.keyCode == 39) { // arrow-right
-            const nextElement = ratingOption.nextElementSibling;
-            if (nextElement) {
-                ratingOption.tabIndex = -1;
-                nextElement.tabIndex = 0;
-                nextElement.focus();
-            }
-        }
-        if (e.keyCode == 37) { // arrow-left
-            const previousElement = ratingOption.previousElementSibling;
-            if (previousElement) {
-                ratingOption.tabIndex = -1;
-                previousElement.tabIndex = 0;
-                previousElement.focus();
-            }
-        }
-    }
+    ratingOption.onkeydown = (e) => onRatingOptionKeydown(e, ratingOption);
 });
 
 submitButton.addEventListener('click', onSubmitButton);
