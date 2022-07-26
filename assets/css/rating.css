@@ -43,7 +43,7 @@
     transition: background-color 0.2s ease-in-out;
 }
 
-.rating-evaluation ul {
+.rating-evaluation .rating-options {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -51,7 +51,7 @@
     margin: 1.5rem 0;
 }
 
-.rating-evaluation ul li {
+.rating-evaluation .rating-options span {
     width: 2.5rem;
     height: 2.5rem;
 
@@ -73,12 +73,12 @@
     transition: background-color 0.2s ease-out;
 }
 
-.rating-evaluation ul li:hover {
+.rating-evaluation .rating-options span:hover {
     background-color: var(--orange);
     color: var(--white);
 }
 
-.rating-evaluation ul li.selected {
+.rating-evaluation .rating-options span.selected {
     background-color: var(--light-grey);
     color: var(--white);
 }
@@ -104,7 +104,7 @@
     cursor: pointer;
 }
 
-.rating-evaluation button.submit:hover {
+.rating-evaluation button.submit:is(:hover, :focus) {
     background-color: var(--white);
     color: var(--orange);
 }
@@ -142,7 +142,7 @@
 }
 
 @media (min-width: 640px) {
-    .rating-evaluation ul li {
+    .rating-evaluation .rating-options span {
         width: 3rem;
         height: 3rem;
     }

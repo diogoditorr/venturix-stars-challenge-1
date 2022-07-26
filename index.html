@@ -33,7 +33,7 @@
                 color: var(--white);
             }
             .attribution a {
-                color: hsl(228, 45%, 44%);
+                color: hsl(228, 45%, 70%);
             }
         </style>
 
@@ -53,13 +53,13 @@
                         All feedback is appreciated to help us improve our
                         offering!
                     </p>
-                    <ul class="rating-options">
-                        <li data-value="1">1</li>
-                        <li data-value="2">2</li>
-                        <li data-value="3">3</li>
-                        <li data-value="4">4</li>
-                        <li data-value="5">5</li>
-                    </ul>
+                    <div class="rating-options">
+                        <span data-value="1" tabindex="0">1</span>
+                        <span data-value="2" tabindex="-1">2</span>
+                        <span data-value="3" tabindex="-1">3</span>
+                        <span data-value="4" tabindex="-1">4</span>
+                        <span data-value="5" tabindex="-1">5</span>
+                    </div>
                     <button class="submit" disabled>Submit</button>
                 </div>
 
@@ -85,6 +85,7 @@
             Challenge by
             <a
                 href="https://www.frontendmentor.io?ref=challenge"
+                rel="noopener"
                 target="_blank"
                 >Frontend Mentor</a
             >. Coded by <a href="#">Diego Oliveira</a>.
