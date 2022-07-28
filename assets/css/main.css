@@ -8,6 +8,7 @@
     --very-dark-blue: hsl(216, 12%, 8%);
 
     --body-background: var(--very-dark-blue);
+    --label-checked-background: hsl(217, 12%, 53%);
     --rating-value-background: linear-gradient(
         var(--dark-blue),
         var(--more-dark-blue)

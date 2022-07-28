@@ -86,7 +86,7 @@
 }
 
 .rating-evaluation .rating-options input[type="radio"]:checked + label {
-    background-color: var(--light-grey);
+    background-color: var(--label-checked-background);
     color: var(--white);
 }
 
