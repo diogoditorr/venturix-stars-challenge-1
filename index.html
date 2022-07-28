@@ -53,14 +53,53 @@
                         All feedback is appreciated to help us improve our
                         offering!
                     </p>
-                    <div class="rating-options">
-                        <span data-value="1" tabindex="0">1</span>
-                        <span data-value="2" tabindex="-1">2</span>
-                        <span data-value="3" tabindex="-1">3</span>
-                        <span data-value="4" tabindex="-1">4</span>
-                        <span data-value="5" tabindex="-1">5</span>
-                    </div>
-                    <button class="submit" disabled>Submit</button>
+                    <form>
+                        <div class="rating-options">
+                            <input
+                                type="radio"
+                                name="ratingValue"
+                                id="ratingValue1"
+                                value="1"
+                            />
+                            <label for="ratingValue1">1</label>
+
+                            <input
+                                type="radio"
+                                name="ratingValue"
+                                id="ratingValue2"
+                                value="2"
+                            />
+                            <label for="ratingValue2">2</label>
+
+                            <input
+                                type="radio"
+                                name="ratingValue"
+                                id="ratingValue3"
+                                value="3"
+                            />
+                            <label for="ratingValue3">3</label>
+
+                            <input
+                                type="radio"
+                                name="ratingValue"
+                                id="ratingValue4"
+                                value="4"
+                            />
+                            <label for="ratingValue4">4</label>
+
+                            <input
+                                type="radio"
+                                name="ratingValue"
+                                id="ratingValue5"
+                                value="5"
+                            />
+                            <label for="ratingValue5">5</label>
+                        </div>
+
+                        <button type="submit" class="submit" disabled>
+                            Submit
+                        </button>
+                    </form>
                 </div>
 
                 <div class="rating-acknowledgement hidden">

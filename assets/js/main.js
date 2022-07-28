@@ -1,57 +1,39 @@
-const submitButton = document.querySelector('.rating-evaluation button.submit');
-const ratingEvaluationSection = document.querySelector('.rating-evaluation');
-const ratingAcknowledgementSection = document.querySelector('.rating-acknowledgement');
-const ratingOptions = document.querySelectorAll('.rating-evaluation .rating-options span');
-const ratingSelected = document.querySelector('.rating-acknowledgement span.rating-selected');
-let ratingResult = 0
+const submitButton = document.querySelector(".rating-evaluation form button");
+const ratingOptionsForm = document.querySelector(".rating-evaluation form");
+const ratingEvaluationSection = document.querySelector(".rating-evaluation");
+const ratingAcknowledgementSection = document.querySelector(
+    ".rating-acknowledgement"
+);
+const ratingOptions = document.querySelectorAll(
+    ".rating-evaluation .rating-options input"
+);
+const ratingSelected = document.querySelector(
+    ".rating-acknowledgement span.rating-selected"
+);
 
-function onRatingOptionPress(ratingOption) {
-    clearRatingOptions();
+function onRatingOptionChange(event) {
+    const ratingOption = event.target;
 
-    const newRatingResult = ratingOption.getAttribute('data-value');
-    if (newRatingResult == ratingResult) {
-        ratingResult = 0;
+    if (!ratingOption.checked) {
         disableSubmitButton();
-        return
+        return;
     }
 
-    ratingResult = newRatingResult;
     enableSubmitButton();
-    ratingOption.classList.add('selected');
 }
 
-function onRatingOptionKeydown(e, ratingOption) {
-    if (e.keyCode == 13) { // enter
-        onRatingOptionPress(ratingOption);
-    }
-    if (e.keyCode == 39) { // arrow-right
-        const nextElement = ratingOption.nextElementSibling;
-        if (nextElement) {
-            ratingOption.tabIndex = -1;
-            nextElement.tabIndex = 0;
-            nextElement.focus();
-        }
-    }
-    if (e.keyCode == 37) { // arrow-left
-        const previousElement = ratingOption.previousElementSibling;
-        if (previousElement) {
-            ratingOption.tabIndex = -1;
-            previousElement.tabIndex = 0;
-            previousElement.focus();
-        }
-    }
-}
+function onSubmitButton(event) {
+    event.preventDefault();
 
-function onSubmitButton() {
-    ratingSelected.textContent = `You selected ${ratingResult} out of 5`;
-    ratingEvaluationSection.classList.add('hidden');
-    ratingAcknowledgementSection.classList.remove('hidden');
-}
+    const data = Object.fromEntries(
+        new FormData(ratingOptionsForm).entries()
+    );
 
-function clearRatingOptions() {
-    ratingOptions.forEach((ratingOption) => {
-        ratingOption.classList.remove('selected');
-    });
+    if (data.ratingValue !== null) {
+        ratingSelected.textContent = `You selected ${data.ratingValue} out of 5`;
+        ratingEvaluationSection.classList.add("hidden");
+        ratingAcknowledgementSection.classList.remove("hidden");
+    }
 }
 
 function enableSubmitButton() {
@@ -63,8 +45,7 @@ function disableSubmitButton() {
 }
 
 ratingOptions.forEach((ratingOption) => {
-    ratingOption.addEventListener('click', () => onRatingOptionPress(ratingOption));
-    ratingOption.onkeydown = (e) => onRatingOptionKeydown(e, ratingOption);
+    ratingOption.addEventListener("change", (e) => onRatingOptionChange(e));
 });
 
-submitButton.addEventListener('click', onSubmitButton);
+ratingOptionsForm.addEventListener("submit", (e) => onSubmitButton(e));

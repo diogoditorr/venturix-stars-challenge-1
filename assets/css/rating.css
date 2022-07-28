@@ -51,7 +51,14 @@
     margin: 1.5rem 0;
 }
 
-.rating-evaluation .rating-options span {
+.rating-evaluation .rating-options input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+    height: 0;
+}
+
+.rating-evaluation .rating-options label {
     width: 2.5rem;
     height: 2.5rem;
 
@@ -73,14 +80,20 @@
     transition: background-color 0.2s ease-out;
 }
 
-.rating-evaluation .rating-options span:hover {
+.rating-evaluation .rating-options label:hover {
     background-color: var(--orange);
     color: var(--white);
 }
 
-.rating-evaluation .rating-options span.selected {
+.rating-evaluation .rating-options input[type="radio"]:checked + label {
     background-color: var(--light-grey);
     color: var(--white);
+}
+
+.rating-evaluation .rating-options input[type="radio"]:focus + label {
+    border-width: 2px;
+    border-color:  #444;
+    border-style: dashed;
 }
 
 .rating-evaluation button.submit {
@@ -142,7 +155,7 @@
 }
 
 @media (min-width: 640px) {
-    .rating-evaluation .rating-options span {
+    .rating-evaluation .rating-options label {
         width: 3rem;
         height: 3rem;
     }
