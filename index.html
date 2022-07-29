@@ -21,6 +21,15 @@
         <title>Frontend Mentor | Interactive rating component</title>
 
         <!-- Styles -->
+        <!-- 
+            Gostei da preocupação em separar em stylesheets
+            distintas. Demonstra que você tem um atendimento já sobre
+            as separações de responsabilidade.
+            Porém, aqui você poderia ter utilizado apenas o "main.css"
+            e dentro dele importar os demais arquivos.
+   
+            https://developer.mozilla.org/en-US/docs/Web/CSS/@import
+        -->
         <link rel="stylesheet" href="./assets/css/main.css" />
         <link rel="stylesheet" href="./assets/css/rating.css" />
         <link rel="stylesheet" href="./assets/css/utils.css" />
@@ -42,6 +51,14 @@
     </head>
     <body>
         <main>
+            <!-- 
+                O nome das classes ficaram bem descritivos, mas talvez seja legal utilizar alguma
+                metodologia. Além de manter um código mais semântico e descritivo pra si mesmo, você ajuda 
+                também outros devs que venham a dar manutenção no mesmo projeto que você estiver atuando.
+
+                Um bom começo é o BEM:
+                https://desenvolvimentoparaweb.com/css/bem/
+            -->
             <div class="rating-container">
                 <div class="rating-evaluation">
                     <div class="star">
