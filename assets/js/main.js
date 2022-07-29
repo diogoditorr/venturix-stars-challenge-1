@@ -11,6 +11,7 @@ const ratingSelected = document.querySelector(
     ".rating-acknowledgement span.rating-selected"
 );
 
+/* 
 function onRatingOptionChange(event) {
     const ratingOption = event.target;
 
@@ -20,32 +21,41 @@ function onRatingOptionChange(event) {
     }
 
     enableSubmitButton();
-}
+} */
+
+/* a function acima pode ser simplificada assim:
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+*/
+const onRatingOptionChange = ({ target }) =>
+    (submitButton.disabled = !target.checked);
 
 function onSubmitButton(event) {
     event.preventDefault();
 
+    /*
     const data = Object.fromEntries(
         new FormData(ratingOptionsForm).entries()
     );
+    */
 
-    if (data.ratingValue !== null) {
-        ratingSelected.textContent = `You selected ${data.ratingValue} out of 5`;
+    // Ao invés de percorrer as entries do formData pra criar
+    // um Object eai acessar a prop que você quer
+    // É possível usar o método .get diretamente
+
+    // developer.mozilla.org/en-US/docs/Web/API/FormData/get
+    const formData = new FormData(ratingOptionsForm);
+    const value = formData.get("ratingValue");
+
+    if (value !== null) {
+        ratingSelected.textContent = `You selected ${value} out of 5`;
         ratingEvaluationSection.classList.add("hidden");
         ratingAcknowledgementSection.classList.remove("hidden");
     }
 }
 
-function enableSubmitButton() {
-    submitButton.disabled = false;
-}
-
-function disableSubmitButton() {
-    submitButton.disabled = true;
-}
-
 ratingOptions.forEach((ratingOption) => {
-    ratingOption.addEventListener("change", (e) => onRatingOptionChange(e));
+    ratingOption.addEventListener("change", onRatingOptionChange);
 });
 
 ratingOptionsForm.addEventListener("submit", (e) => onSubmitButton(e));
