@@ -96,9 +96,7 @@
 }
 
 .rating-evaluation .rating-options input[type="radio"]:focus + label {
-    border-width: 2px;
-    border-color:  #444;
-    border-style: dashed;
+    outline: 2px solid black;
 }
 
 .rating-evaluation button.submit {
