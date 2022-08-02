@@ -95,8 +95,9 @@
     color: var(--white);
 }
 
-.rating-evaluation .rating-options input[type="radio"]:focus + label {
-    outline: 2px solid black;
+.rating-evaluation .rating-options input[type="radio"]:focus-visible + label {
+    outline-style: auto;
+    outline-color: black;
 }
 
 .rating-evaluation button.submit {
